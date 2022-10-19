@@ -1,3 +1,4 @@
+import 'package:destini/story_brain.dart';
 import 'package:flutter/material.dart';
 
 //TODO: Step 15 - Run the app and see if you can see the screen update with the first story. Delete this TODO if it looks as you expected.
@@ -7,6 +8,7 @@ void main() => runApp(Destini());
 class Destini extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData.dark(),
       home: StoryPage(),
     );
@@ -24,8 +26,16 @@ class _StoryPageState extends State<StoryPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        //TODO: Step 1 - Add background.png to this Container as a background image.
+        //TODO: Step 1 - Add background.png to this Container as a background image. ------- //done
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
         padding: EdgeInsets.symmetric(vertical: 50.0, horizontal: 15.0),
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('images/LucyLaunchB_Kraus_2048.jpg'),
+            fit: BoxFit.fill,
+          ),
+        ),
         constraints: BoxConstraints.expand(),
         child: SafeArea(
           child: Column(
@@ -36,6 +46,7 @@ class _StoryPageState extends State<StoryPage> {
                 child: Center(
                   child: Text(
                     //TODO: Step 10 - use the storyBrain to get the first story title and display it in this Text Widget.
+                    //StoryBrain().storyData[1]['storyTitle'],
                     'Story text will go here.',
                     style: TextStyle(
                       fontSize: 25.0,
